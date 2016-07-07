@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>实践题 - 选项卡</title>
+    <style type="text/css">
+        body {
+            margin-top: 20px;
+            margin-left: 20px;
+            padding: 0;
+        }
+
+        /* CSS样式制作 */
+        ul {
+            margin: 0;
+        }
+
+        li {
+            display: inline;
+            position: relative;
+
+        }
+
+        .lii {
+
+            text-decoration: none;
+            color: black;
+            border: 1px #ccc solid;
+            border-bottom: 2px #123 solid;
+            padding: 8px;
+        }
+
+        .liiChecked {
+            text-decoration: none;
+            color: black;
+            border: 1px #ccc solid;
+            border-bottom: 2px #fff solid;
+            border-top: 2px #123 solid;
+            padding: 8px;
+
+        }
+
+        #content {
+            border: 1px #ccc solid;
+            border-top: 2px #123 solid;
+        }
+
+        div {
+            padding: 0;
+            margin-top: 8px;
+            width: 400px;
+        }
+
+        .contentHidden {
+            display: none;
+        }
+
+        .contentShow {
+            display: block;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        // JS实现选项卡切换
+        function changeTab(a) {
+
+            var divContent = document.getElementsByTagName("p");
+            var as=document.getElementsByTagName("a");
+//            var divContents=  divContent.childNodes;
+            //   contents[0].setAttribute("display","none");
+//            alert(divContent.length);
+            for (var i = 0; i < divContent.length; i++) {
+                if (i == a) {
+                    divContent[a].setAttribute("class", "contentShow");
+                    as[a].setAttribute("class", "liiChecked");
+                    continue;
+                }else{
+                    divContent[i].setAttribute("class", "contentHidden");
+                    as[i].setAttribute("class", "lii");
+                }
+
+
+            }
+        }
+        var button1,button2,button3;
+        function onLoad(){
+            changeTab(0);
+
+            button1=document.getElementById("button1");
+            button2=document.getElementById("button2");
+            button3=document.getElementById("button3");
+
+            eventUtil.addHandler(button1,'click',clic)
+        }
+
+        function clic(ev){
+            ev=ev||window.event;
+
+            //DOM中的事件对象属性和方法
+            ev.type;//事件的类型
+            ev.target;//目标node
+            ev.stopPropagation();//阻止事件向上冒泡
+            ev.preventDefault();//阻止方法的默认行为
+            //IE中的事件对象的属性和方法
+            ev.type;
+            ev.srcElement;
+            ev.cancelBubble=true;
+            ev.returnValue=false;
+        }
+
+
+
+        var eventUtil={
+            //添加句柄
+            addHandler: function (element, type, handler) {
+                if(element.addEventListener){
+                    element.addEventListener(type,handler,false);
+                }else if(element.attachEvent){
+                    element.attachEvent('on'+type,handler);
+
+                }else{
+                    element['on'+type]=handler;
+                }
+            },
+            //添加句柄
+            removeHandler: function (element, type, handler) {
+                if(element.removeEventListener){
+                    element.removeEventListener(type,handler,false);
+                }else if(element.attachEvent){
+                    element.detachEvent('on'+type,handler);
+
+                }else{
+                    element['on'+type]=null;
+                }
+            }
+        }
+
+
+    </script>
+
+</head>
+<body onload="onLoad()">
+<!-- HTML页面布局 -->
+<ul>
+    <li><a class="liiChecked" href="javascript:;" onclick="changeTab(0)">房产</a></li>
+    <li><a class="lii" href="javascript:;" onclick="changeTab(1)">家居</a></li>
+    <li><a href="javascript:;" class="lii" onclick="changeTab(2)">二手房</a></li>
+</ul>
+<div id="content">
+    <p>275万购昌平邻铁三居 总价20万买一居<br/>
+        200万内购五环三居 140万安家东三环<br/>
+        北京首现零首付楼盘 53万购东5环50平<br/>
+        京楼盘直降5000 中信府 公园楼王现房</p>
+
+    <p>
+        40平出租屋大改造 美少女的混搭小窝<br/>
+        经典清新简欧爱家 90平老房焕发新生<br/>
+        新中式的酷色温情 66平撞色活泼家居<br/>
+        瓷砖就像选好老婆 卫生间烟道的设计
+    </p>
+
+    <p>通州豪华3居260万 二环稀缺2居250w甩<br/>
+        西3环通透2居290万 130万2居限量抢购<br/>
+        黄城根小学学区仅260万 121平70万抛!<br/>
+        独家别墅280万 苏州桥2居优惠价248万</p>
+</div>
+
+<div>
+    <input id="button1" type="button" value="button1">
+    <input id="button2" type="button" value="button2">
+    <input id="button3" type="button" value="button3">
+</div>
+</body>
+</html>
