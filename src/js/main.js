@@ -76,6 +76,7 @@ function fnDown(event){
     document.onmouseup=function(){
         document.onmousemove=null;
         document.onmouseup=null;
+
     }
 
 }
@@ -87,7 +88,11 @@ function fnMove(event,postX,postT){
     //alert(l);
     drag.style.left=l+'px';
     drag.style.top=t+'px';
+    //console.log("ds");//控制台打印
 }
+/**
+ * 键盘事件
+ */
 
 
 
