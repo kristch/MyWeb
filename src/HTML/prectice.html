@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>下拉菜单</title>
     <style type="text/css">
-        body, ul, li {
+        *{
             margin: 0;
             padding: 0;
             font-size: 13px;
@@ -58,8 +58,42 @@
             padding-left: 10px;
             padding-right: 10px;
         }
+
+        #image {
+            filter: alpha(opacity:30);
+            opacity: 0.3;
+            cursor: pointer;
+        }
+
+        .moveImg {
+            /*width: 281px;*/
+            width: 300px;
+            left: -283px;
+            height: 161px;
+            border: #ccc 1px solid;
+            position: relative;
+            background: #ccc;
+        }
+
+        .moveTxt {
+            /*position: absolute;*/
+            writing-mode: vertical-rl;
+            float: right;
+            cursor: default;
+        }
     </style>
     <script type="text/javascript">
+        /*
+        js中如果有border则会影响宽度因此需要获取行内style的宽
+         */
+        function getStyle(obj,attr){
+            if(obj.currentStyle){
+                return obj.currentStyle[attr];//非火狐
+            }else{
+                return getComputedStyle(obj,false)[attr];//火狐
+            }
+        }
+
         window.onload = function () {
             var box = document.getElementById('divselect'),
                 title = box.getElementsByTagName('cite')[0],
@@ -72,14 +106,41 @@
 
             title.onclick = function (event) {
                 // 执行脚本
-
-                event=event || window.event;
+                event = event || window.event;
                 if (event.stopPropagation) {
                     event.stopPropagation();
                 } else {
                     event.cancelBubble = true;
                 }
                 menu.style.display = 'block';
+                document.onkeyup = function (ev) {
+                    if (menu.style.display == 'none') {
+
+                        return;
+                    }
+                    if (index != -1) {
+                        as[index].style.background = '#fff';
+                    }
+                    if (ev.keyCode == 40) {
+                        index++;
+                    }
+                    if (ev.keyCode == 38) {
+                        index--;
+                    }
+                    if (index < 0) {
+                        index = 0;
+                    } else if (index > as.length - 1) {
+                        index = as.length - 1;
+                    }
+                    as[index].style.background = '#ccc';
+                    title.innerHTML = as[index].innerHTML;
+                    if (ev.keyCode == 13) {
+                        menu.style.display = 'none';
+                    }
+//                    console.log(ev.keyCode);
+
+                }
+
             }
 
             // 滑过滑过、离开、点击每个选项时
@@ -97,12 +158,69 @@
 
             }
 
+
             // 点击页面空白处时
             // 执行脚本
-            document.onclick=function(){
+            document.onclick = function () {
                 menu.style.display = 'none';
             }
+//透明度的变化
+            var image = document.getElementById('image'),
 
+                alpha = 30;
+            image.timer=null;//多物体同时做运动,把定时器加在对象中
+            image.onmouseover = function (ev) {
+                changeAlpha(100);
+            }
+            image.onmouseout = function (ev) {
+                changeAlpha(30);
+            }
+
+            function changeAlpha(result) {
+                clearInterval(image.timer);
+                image.timer = setInterval(function () {
+                    if (alpha == result) {
+                        clearInterval(image.timer);
+                    } else if (alpha > result) {
+                        alpha -= 10;
+                    } else {
+                        alpha += 10;
+                    }
+                    image.style.opacity = alpha / 100;
+                    image.style.filter = 'alpha(opacity:' + alpha + ')';//IE
+                }, 30);
+            }
+
+var moveImage=document.getElementById('moveImage');
+
+            moveImage.timer=null;
+            moveImage.onmouseover=function(){
+                changeMove(0);
+            }
+            moveImage.onmouseout=function(){
+                changeMove(-283);
+            }
+            function changeMove(result) {
+                clearInterval(moveImage.timer);
+                moveImage.timer = setInterval(function () {
+                    var defaLeft=parseInt(getStyle(moveImage,'left'));
+                    var speed=(result-defaLeft)/5;
+                    speed=speed>0?Math.ceil(speed):Math.floor(speed);
+                    if(defaLeft==result){
+                        clearInterval(moveImage.timer);
+                    }else{
+                        moveImage.style['left']=defaLeft+speed+'px';//属性值设置的两种方式:一种是点一种是中括号加成员变量名,好处是可以传参数变不同的属性
+
+                    }
+                }, 30);
+            }
+
+
+            var json={a:1,b:2};
+
+            for(var i in json){
+                alert(i);
+            }
         }
     </script>
 </head>
@@ -122,5 +240,11 @@
 啊实打实的阿杜开始觉得吧可是大坝开始的吧快上班打卡临时代办卢卡斯被达拉斯看电视
 啊实打实的阿杜开始觉得吧可是大坝开始的吧快上班打卡临时代办卢卡斯被达拉斯看电视
 啊实打实的阿杜开始觉得吧可是大坝开始的吧快上班打卡临时代办卢卡斯被达拉斯看电视
+<div>
+    <img id="image" src="../img/photo01.jpg">
+</div>
+<div class="moveImg" id="moveImage">
+    <img src="../img/photo01.jpg"><a class="moveTxt">分享啊</a>
+</div>
 </body>
 </html>
