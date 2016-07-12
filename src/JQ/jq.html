@@ -64,6 +64,66 @@
         $(".last-div a:nth-child(2)").css("color", "#CD00CD");
         //查找所有class="last-div"下的a元素,选择第倒数第二个
         $(".last-div a:nth-last-child(2)").css("color", "red");
+
+        //toggleClass的使用
+        //给所有的tr元素加一个class="c"的样式
+        $("#table tr").toggleClass("c");
+        //给所有的偶数tr元素切换class="c"的样式
+        //所有基数的样式保留，偶数的被删除
+        $("#table tr:odd").toggleClass("c");
+        //第二个参数判断样式类是否应该被添加或删除
+        //true，那么这个样式类将被添加;
+        //false，那么这个样式类将被移除
+        //所有的奇数tr元素，应该都保留class="c"样式
+        $("#table tr:even").toggleClass("c", true); //这个操作没有变化，因为样式已经是存在的
+
+
+        //CSS的用法
+        //多种写法设置颜色
+        $('.fourth').css("background-color", "red")
+        $('.fifth').css("backgroundColor", "yellow")
+
+        //多种写法设置字体大小
+        $('.fourth').css("font-size", 18)
+        $('.fifth').css("fontSize", "0.8em")
+
+        //获取到指定元素的宽度，在回调返回宽度值
+        //通过处理这个value，重新设置新的宽度
+        $('.sixth').css("width", function (index, value) {
+            // alert(index);
+            return "80px";
+        });
+        //合并设置,通过对象传设置多个样式
+        $('.seventh').css({
+            'fontSize': '18px',
+            'backgroundColor': 'red',
+            'border': '1px solid black'
+        })
+
+
+        //元素的数据存储
+        $('.left').click(function () {
+            var ele = $(this);
+            //通过$.data方式设置数据
+            $.data(ele, "a", "data test")
+            $.data(ele, "b", {
+                name: "慕课网"
+            })
+            //通过$.data方式取出数据
+            var reset = $.data(ele, "a") + "</br>" + $.data(ele, "b").name
+            ele.find('span').append(reset)
+        })
+        $('.right').click(function () {
+            var ele = $(this);
+            //通过.data方式设置数据
+            ele.data("a", "data test")
+            ele.data("b", {
+                name: "慕课网"
+            })
+            //通过.data方式取出数据
+            var reset = ele.data("a") + "</br>" + ele.data("b").name
+            ele.find('span').append(reset)
+        })
     </script>
 </head>
 <body>
