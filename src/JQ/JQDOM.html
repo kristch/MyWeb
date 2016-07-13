@@ -62,8 +62,28 @@
     $(".item-b").parents().css("border", "1px red solid");
     //找到当前元素的所有祖辈元素,筛选出class="first-div"的元素
     //并且附上一个边
-    $('.item-b').parents('.first-div').css('border', '2px solid blue')
+    $('.item-b').parents('.first-div').css('border', '2px solid blue');
 
+    //获取前一个兄弟节点
+    $("li.item-2").prev().css('border','1px red solid');
+    //找到所有class=item-2的li
+    //然后给每个li,然后筛选出第一个，加上蓝色的边
+    $('.item-3').prev(':last').css('border', '1px solid blue');
+//获取相邻的两个节点
+    $(".item-2").siblings().css('border','1px red solid');
+    //找到class=item-2的所有兄弟节点
+    //然后筛选出最后一个，加上蓝色的边
+    $('.item-2').siblings(':last').css('border', '2px solid blue');
+
+    //把p元素加到li合集中,内存中有li也有p的,把他们的北京全部设置成红色
+    $('li').add('p').css('background', 'red')
+
+
+    //遍历所有的li
+    //修改每个li内的字体颜色
+    $("li").each(function(index, element) {
+        $(this).css('color','red')
+    })
 </script>
 </body>
 </html>
