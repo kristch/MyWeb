@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a35d3162-49af-4ffc-8e7f-091600593b5f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JQ/JQINCIDENT.html" afterPath="$PROJECT_DIR$/src/JQ/JQINCIDENT.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,8 +27,8 @@
       <file leaf-file-name="JQINCIDENT.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/JQ/JQINCIDENT.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.17077799">
-              <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.516129">
+              <caret line="69" column="29" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -534,17 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JQ/JQDOM.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.71537">
-          <caret line="85" column="6" selection-start-line="85" selection-start-column="6" selection-end-line="85" selection-end-column="6" />
-          <folding>
-            <marker date="1468376359000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1468376359000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/HTML/prectice.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="5.7210627">
@@ -553,10 +543,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/JQ/JQDOM.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14231499">
+          <caret line="5" column="86" selection-start-line="3" selection-start-column="3" selection-end-line="5" selection-end-column="86" />
+          <folding>
+            <marker date="1468376359000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1468376359000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/JQ/JQINCIDENT.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17077799">
-          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.516129">
+          <caret line="69" column="29" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
           <folding />
         </state>
       </provider>

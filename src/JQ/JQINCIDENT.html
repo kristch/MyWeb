@@ -3,8 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+    <script>
+
+        //      1.  click事件
+
+        //this指向button元素
+        $("button:eq(0)").click(function () {
+            alert(this)
+        })
+
+        $('p').click(function (e) {
+            alert(e.target.textContent)
+        })
+        //this指向button元素
+        $("button:eq(1)").click(function () {
+            $('p').click() //指定触发绑定的事件
+        })
+
+        //不同函数传递数据
+        function data1(e) {
+            alert(e.data) //1111
+        }
+        function a() {
+            $("button:eq(2)").click(1111, data1)
+        }
+        a();
+
+        //给p标签绑定事件
+        $('p').mousedown(function (e) {
+            alert(e.target.textContent)
+        })
+        //this指向button元素
+        $("button:eq(1)").mousedown(function () {
+            $('p').mousedown() //指定触发绑定的事件
+        })
+
+        //        mouseenter与mouseleave事件,代替mouseover  mouseout避免冒泡的问题
+
+        // hover()方法是同时绑定 mouseenter和 mouseleave事件。
+        // 我们可以用它来简单地应用在 鼠标在元素上行为
+        $("p").hover(
+            function () {
+                $(this).css("background", 'red');
+            },
+            function () {
+                $(this).css("background", '#aaffff');
+            }
+        );
+
+        //        focusin事件,或者其内部任何一个元素获得焦点的时候
+
+        //不同函数传递数据
+        function fn(e) {
+            $(this).val(e.data)
+        }
+
+        function a() {
+            $("input:last").focusin('慕课网', fn)
+        }
+        a();
+        //        focusout事件 其内部任何一个元素失去焦点的时候
+        //        ...
+
+        //        blur与foucus事件
+        //得到焦点,blur不能冒泡等,对子控件没有反应
+        $(".aaron").focus(function () {
+            $(this).css('border', '2px solid red')
+        })
+        $(".aaron1").focusin(function () {
+            $(this).find('input').val('冒泡捕获了focusin事件')
+
+        })
+        //失去焦点 blur不能分发事件,而没有对子控件反应
+        $(".aaron3").blur(function () {
+            $(this).css('border', '2px solid red')
+        })
+        $(".aaron4").focusout(function () {
+            $(this).find('input').val('冒泡捕获了focusout事件')
+        })
+
+    </script>
+
+
 </head>
-<body> 
+<body>
 
 </body>
 </html>
