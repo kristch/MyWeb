@@ -96,24 +96,67 @@
             alert('捕获提交表达动作,阻止页面跳转')
             return false;
         });
-//        keydown()与keyup()事件,键盘按下的事件
+        //        keydown()与keyup()事件,键盘按下的事件
         //监听键盘按键
         //获取输入的值
-        $('.target1').keydown(function(e) {
+        $('.target1').keydown(function (e) {
             $("em:first").text(e.target.value)
         });
 
         //监听键盘按键
         //获取输入的值
-        $('.target2').keyup(function(e) {
+        $('.target2').keyup(function (e) {
             $("em:last").text(e.target.value)
         });
-//        KeyPress主要用来接收字母、数字等ANSI字符，而 KeyDown 和 KeyUP 事件过程可以处理任何不被 KeyPress 识别的击键。
-//        诸如：功能键（F1-F12）、编辑键、定位键以及任何这些键和键盘换档键的组合等。
+        //        KeyPress主要用来接收字母、数字等ANSI字符，而 KeyDown 和 KeyUP 事件过程可以处理任何不被 KeyPress 识别的击键。
+        //        诸如：功能键（F1-F12）、编辑键、定位键以及任何这些键和键盘换档键的组合等。
+
+        //        on()的多事件绑定,w为元素绑定事件 在调用
+
+        //多事件绑定一
+        $("#test2").on('mousedown mouseup', function (e) {
+            $(this).text('触发事件：' + e.type)
+        })
+        //多事件绑定二
+        $("#test3").on({
+            mousedown: function (e) {
+                $(this).text('触发事件：' + e.type)
+            },
+            mouseup: function (e) {
+                $(this).text('触发事件：' + e.type)
+            }
+        })
+        //给body绑定一个click事件
+        //没有直接a元素绑定点击事件
+        //通过委托机制，点击a元素的时候，事件触发
+        $('body').on('click', 'a', function(e) {
+            alert(e.target.textContent)
+        })
+
+//        绑定2个事件
+        $("elem").on("mousedown mouseup",fn)
+//        删除一个事件
+        $("elem").off("mousedown")
+//        删除所有事件
+        $("elem").off("mousedown mouseup")
+//        快捷方式删除所有事件，这里不需要传递事件名了，节点上绑定的所有事件讲全部销毁
+        $("elem").off()
+
+
+        //多事件绑定一 event.target代表当前触发事件的元素，可以通过当前元素对象的一系列属性来判断是不是我们想要的元素
+        $("ul").on('click',function(e){
+            alert('触发的元素是内容是: ' + e.target.textContent)
+        })
+
+//      jQuery事件对象的属性和方法
+//  event.type：获取事件的类型
+//        event.pageX 和 event.pageY：获取鼠标当前相对于页面的坐标
+//        event.preventDefault() 方法：阻止默认行为
+//        event.stopPropagation() 方法：阻止事件冒泡
+//        event.which：获取在鼠标单击时，单击的是鼠标的哪个键
+//        event.currentTarget : 在事件冒泡过程中的当前DOM元素
         
     </script>
-
-
 </head>
 <body>
 
