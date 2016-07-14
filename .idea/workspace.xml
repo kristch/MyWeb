@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a35d3162-49af-4ffc-8e7f-091600593b5f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/JQ/JQAnimation.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JQ/JQINCIDENT.html" afterPath="$PROJECT_DIR$/src/JQ/JQINCIDENT.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="JQINCIDENT.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/JQ/JQINCIDENT.html">
+      <file leaf-file-name="JQAnimation.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/JQ/JQAnimation.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.943074">
-              <caret line="157" column="8" selection-start-line="157" selection-start-column="8" selection-end-line="157" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.686907">
+              <caret line="142" column="66" selection-start-line="142" selection-start-column="66" selection-end-line="142" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -62,6 +64,7 @@
         <option value="$PROJECT_DIR$/src/JQ/jq.html" />
         <option value="$PROJECT_DIR$/src/JQ/JQDOM.html" />
         <option value="$PROJECT_DIR$/src/JQ/JQINCIDENT.html" />
+        <option value="$PROJECT_DIR$/src/JQ/JQAnimation.html" />
       </list>
     </option>
   </component>
@@ -340,10 +343,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1468376359000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1468376359000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -542,21 +542,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JQ/JQDOM.html">
+    <entry file="file://$PROJECT_DIR$/src/JQ/JQINCIDENT.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14231499">
-          <caret line="5" column="86" selection-start-line="3" selection-start-column="3" selection-end-line="5" selection-end-column="86" />
-          <folding>
-            <marker date="1468376359000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1468376359000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="2.7362428">
+          <caret line="175" column="11" selection-start-line="175" selection-start-column="11" selection-end-line="175" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JQ/JQINCIDENT.html">
+    <entry file="file://$PROJECT_DIR$/src/JQ/JQDOM.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.943074">
-          <caret line="157" column="8" selection-start-line="157" selection-start-column="8" selection-end-line="157" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.14231499">
+          <caret line="5" column="86" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JQ/JQAnimation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.686907">
+          <caret line="142" column="66" selection-start-line="142" selection-start-column="66" selection-end-line="142" selection-end-column="66" />
           <folding />
         </state>
       </provider>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+    <script>
+
+        //点击buttom
+        //执行3秒隐藏
+        //执行3秒显示
+        $("button").click(function () {
+            $("#a1").hide(3000).show(3000)
+        });
+        //        toggle方法就是show与hide的相互切换的一个快捷方法
+        $("button:last").click(function () {
+            $(".right").toggle(3000)
+        });
+        //        下拉动画slideDown
+        //点击buttom
+        //执行3秒隐藏
+        //执行3秒显示
+        $("button:first").click(function () {
+            $("#a1").slideDown(3000)
+        });
+        //点击buttom
+        //执行3秒隐藏
+        //执行3秒显示
+        $("button:last").click(function () {
+            $("#a2").slideDown(3000, function () {
+                alert('动画执行结束')
+            })
+        });
+
+        //        上卷动画slideUp
+        //点击buttom
+        //执行3秒隐藏
+        //执行3秒显示
+        $("button:first").click(function () {
+            $("#a1").slideUp(3000)
+        });
+        //        上卷下拉切换slideToggle
+        $("button").click(function () {
+            $("#a1").slideToggle(3000)
+        });
+
+        //        淡出动画fadeOut
+        $("p").fadeOut(3000);
+        //        淡入动画fadeIn
+        $("p").fadeIn(3000);
+        //淡入淡出切换fadeToggle
+        $("p").fadeToggle("slow");
+
+        //        淡入效果fadeTo 给定透明度过度
+        $("p").fadeTo("slow", 0.5);
+
+        //        动画animate 复杂的动画
+        // 数值的单位默认是px,宽高都变成300px
+        $('p').animate({
+            width: 300,
+            height: 300
+        });
+        //      字体变成5em,2秒完成,完成后执行alert
+        $('p').animate({
+            fontSize: "5em"
+        }, 2000, function () {
+            alert("动画 fontSize执行完毕!");
+        });
+        //通过toggle参数切换高度
+        $('p').animate({
+            width: "toggle"//hiden show都可以
+        });
+
+        //        .animate( properties, options )
+        //        options参数
+        //        duration - 设置动画执行的时间
+        //        easing - 规定要使用的 easing 函数，过渡使用哪种缓动函数
+        //        step：规定每个动画的每一步完成之后要执行的函数
+        //        progress：每一次动画调用的时候会执行这个回调，就是一个进度的概念
+        //        complete：动画完成回调
+
+        //        如果多个元素执行动画，回调将在每个匹配的元素上执行一次，不是作为整个动画执行一次
+        $('#elem').animate({
+            width: 'toggle',
+            height: 'toggle'
+        }, {
+            duration: 5000,
+            specialEasing: {
+                width: 'linear',
+                height: 'easeOutBounce'
+            },
+            complete: function () {
+                $(this).after('<div>Animation complete.</div>');
+            }
+        });
+
+        //        停止动画stop
+        $("#aaron").animate({
+            height: 300
+        }, 5000)
+        $("#aaron").animate({
+            width: 300
+        }, 5000)
+        $("#aaron").animate({
+            opacity: 0.6
+        }, 2000)
+        //        stop()：只会停止第一个动画，第二个第三个继续
+        //        stop(true)：停止第一个、第二个和第三个动画
+        //        stop(true ture)：停止动画，直接跳到第一个动画的最终状态
+        //        如果动画未完成停止了，那么动画完成时执行的回调函数是不会被调用的
+
+        //        JQ的each方法的使用
+
+
+        // 遍历数组元素
+        $.each(['Aaron', '慕课网'], function (i, item) {
+            $("#aaron").append("索引=" + i + "; 元素=" + item);
+        });
+        // 遍历对象属性
+        $.each({
+            name: "张三",
+            age: 18
+        }, function (property, value) {
+            $("#aaron").append("属性名=" + property + "; 属性值=" + value);
+        });
+
+        //        查找数组中的索引inArray  查找值在数组中的索引
+        $.inArray(5, [1, 2, 3, 4, 5, 6, 7]) //返回对应的索引：4
+        // 如果要判断数组中是否存在指定值，你需要通过该函数的返回值不等于(或大于)-1来进行判断
+
+        //        去空格神器trim方法
+        // 移除字符串开始和结尾处的所有换行符，空格(包括连续的空格)和制表符（tab）
+        //        如果这些空白字符在字符串中间时，它们将被保留，不会被移除
+        $.trim($("#results2").val());
+
+//      获取标签数组中的某一个,<a>1</a>
+//        <a>2</a>
+//        <a>3</a>
+        $(a).get(1)//从前到后查询,0开始
+        $(a).get(-2)//从后到前查询 从1开始
+
+//        index方法
+        $span.text($("li").index())//同辈元素开始计算,从0开始算,同辈不是li 则她的值往后排
+        //通过传递dom查找
+        $span.text($("li").index(document.getElementById("test5")))
+        //通过传递jQuery对象查找
+        $span.text($("li").index($("#test6")))
+    </script>
+</head>
+<body>
+
+</body>
+</html>

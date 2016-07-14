@@ -155,7 +155,25 @@
 //        event.stopPropagation() 方法：阻止事件冒泡
 //        event.which：获取在鼠标单击时，单击的是鼠标的哪个键
 //        event.currentTarget : 在事件冒泡过程中的当前DOM元素
-        
+
+//        自定义事件 trigger事件
+
+        //给input绑定一个聚焦事件
+        $("input").on("focus",function(event,titie) {
+            $(this).val(titie)
+        });
+
+
+        //trigger触发focus
+        $("button:first").click(function() {
+            $("input").trigger("focus",['触发默认事件']);
+        });
+
+
+        //triggerHandler触发focus
+        $("button:last").click(function() {
+            $("input").triggerHandler("focus",'没有触发默认事件');
+        });
     </script>
 </head>
 <body>
