@@ -83,6 +83,34 @@
             $(this).find('input').val('冒泡捕获了focusout事件')
         })
 
+        //输入选择框的监听change事件,失去焦点并且文本改变的时候触发
+        //        当 textarea 或文本类型的 input 元素中的文本被选择时，会发生 select 事件。
+
+        //回车键或者点击提交表单
+        $('#target1').submit(function (e) {
+            alert('捕获提交表达动作,不阻止页面跳转')
+
+        });
+        //回车键或者点击提交表单,禁止浏览器默认跳转：
+        $('#target2').submit(function () {
+            alert('捕获提交表达动作,阻止页面跳转')
+            return false;
+        });
+//        keydown()与keyup()事件,键盘按下的事件
+        //监听键盘按键
+        //获取输入的值
+        $('.target1').keydown(function(e) {
+            $("em:first").text(e.target.value)
+        });
+
+        //监听键盘按键
+        //获取输入的值
+        $('.target2').keyup(function(e) {
+            $("em:last").text(e.target.value)
+        });
+//        KeyPress主要用来接收字母、数字等ANSI字符，而 KeyDown 和 KeyUP 事件过程可以处理任何不被 KeyPress 识别的击键。
+//        诸如：功能键（F1-F12）、编辑键、定位键以及任何这些键和键盘换档键的组合等。
+        
     </script>
 
 
